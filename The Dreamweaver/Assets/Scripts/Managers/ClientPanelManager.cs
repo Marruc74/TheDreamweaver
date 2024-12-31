@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ClientPanelManager : MonoBehaviour
 {
@@ -41,6 +42,9 @@ public class ClientPanelManager : MonoBehaviour
 
             //clientNameText.text = client.firstName + " " + client.lastName + " - " + client.country + " - " + client.age + " years old";
             clientNameText.text = $"Client: {client.firstName} {client.lastName}, Age: {client.age}, Gender: {client.gender}, Country: {client.country}, Satisfaction: {client.satisfactionLevel}%";
+
+            Image portrait = clientObj.GetComponentInChildren<Image>();
+            portrait.sprite = client.clientPortrait;
             // Set the client's details on the UI prefab
             //ClientUI clientUI = clientObj.GetComponent<ClientUI>();
             //clientUI.SetClientDetails(client);  // Pass the client data to the UI script

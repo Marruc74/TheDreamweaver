@@ -25,6 +25,7 @@ public class Client
         this.age = age;
         satisfactionLevel = Random.Range(50, 101); // Random satisfaction between 50 and 100
         dreamBudget = budget;
+        clientPortrait = new Portrait().CreatePortrait(country, gender, age);
     }
 
     // Method to display client details

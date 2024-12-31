@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e37c57d920f0524f828a7c9a3b106b9, type: 3}
+  m_Name: 1
+  m_EditorClassIdentifier: 
+  id: 0
+  etnicityName: Caucasian
+  skinColorList: {fileID: 11400000, guid: 3a41c4d3362d76e43bc22c2bb7dd069e, type: 2}
+  hairColorList: {fileID: 0}
+  pupilsColorList: {fileID: 0}
+  faceShapesMale:
+  - {fileID: 2800000, guid: 7390f435f230e9040bdf62a239942f95, type: 3}
+  faceShapesFemale:
+  - {fileID: 2800000, guid: bb54a47fa320d5a4da8bac9eed92fd06, type: 3}
+  nosePartsMale: []
+  nosePartsFemale: []
+  mouthPartsMale: []
+  mouthPartsFemale: []
+  eyesPartsMale: []
+  eyesPartsFemale: []
+  pupilsPartsMale: []
+  pupilsPartsFemale: []
+  eyeBrowsMale: []
+  eyeBrowsFemale: []
+  hairMale: []
+  hairFemale: []
+  facialHairMale: []
+  maleBaldChance: 0
+  femaleBaldChance: 0
+  facialHairChance: 0
