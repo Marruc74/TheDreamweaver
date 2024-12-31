@@ -76,3 +76,5 @@ crashlytics-build.properties
 /The Dreamweaver/Logs/*
 /The Dreamweaver/UserSettings/*
 *.mp4
+/The Dreamweaver/Assets/TextMesh Pro
+The Dreamweaver/Assets/TextMesh Pro.meta

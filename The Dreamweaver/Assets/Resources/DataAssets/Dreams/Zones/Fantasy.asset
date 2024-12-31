@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4118b2377db15847853652513f98f04, type: 3}
+  m_Name: Fantasy
+  m_EditorClassIdentifier: 
+  zoneName: Fantasy
+  description: A whimsical land with magical creatures, flying islands, and enchanted
+    forests.
+  idealClients: Adds fantasy elements to dreams, offering high creativity and fantasy
+    but with potential chaos. Great for dreamers who seek escapism.
+  icon: {fileID: 0}
+  baseCost: 0
+  emotionalImpact: 0
+  balanceImpact: 0

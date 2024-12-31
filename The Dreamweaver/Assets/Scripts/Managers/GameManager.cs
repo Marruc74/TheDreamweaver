@@ -1,14 +1,17 @@
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public enum GameState { DayStart, Crafting, Nightmare, DayEnd }
+    public TextMeshProUGUI phaseText;
+    public GameObject craftingPanel;
+    public enum GameState { DayStart, Crafting, Dream, DayEnd }
     public GameState currentState;
 
     public int clientsPerDay = 3;  // Number of new clients to generate each day
     public ClientManager clientManager;  // Reference to the ClientManager to access the client list
 
-    private int currentDay = 1;  // Track the current day
+    private int currentDay = 0;  // Track the current day
 
 
     void Start()
@@ -24,29 +27,38 @@ public class GameManager : MonoBehaviour
 
     void StartDay()
     {
-        Debug.Log("Starting a new day...");
+        currentDay++;
+        phaseText.enabled = true;
+        phaseText.text = $"Starting day {currentDay}!";
         clientManager.GenerateClients(clientsPerDay);
         currentState = GameState.Crafting;
-        StartCrafting();
+        Invoke(nameof(StartCrafting), 3f);
     }
 
     void StartCrafting()
     {
+        //phaseText.text = $"Crafting dreams...!";
         Debug.Log("Crafting dreams...");
-        // Logic for dream crafting goes here
-        Invoke(nameof(StartNightmare), 5f); // Simulate crafting for 5 seconds
+        phaseText.enabled = false;
+        //// Logic for dream crafting goes here
+        //Invoke(nameof(StartNightmare), 2f); // Simulate crafting for 5 seconds
+        craftingPanel.SetActive(true);
     }
 
-    void StartNightmare()
+    public void StartDreamPhase()
     {
-        Debug.Log("Nightmare encountered...");
-        currentState = GameState.Nightmare;
+        craftingPanel.SetActive(false);
+        phaseText.enabled = true;
+        phaseText.text = "Dreams encountered...";
+        Debug.Log("Dreams encountered...");
+        currentState = GameState.Dream;
         // Logic for nightmare challenges
-        Invoke(nameof(EndDay), 5f); // Simulate nightmare for 5 seconds
+        Invoke(nameof(EndDay), 2f); // Simulate nightmare for 5 seconds
     }
 
     void EndDay()
     {
+        phaseText.text = "Ending the day...";
         Debug.Log("Ending the day...");
         currentState = GameState.DayEnd;
         // Calculate rewards

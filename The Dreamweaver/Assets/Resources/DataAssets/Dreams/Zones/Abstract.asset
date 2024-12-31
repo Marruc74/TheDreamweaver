@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4118b2377db15847853652513f98f04, type: 3}
+  m_Name: Abstract
+  m_EditorClassIdentifier: 
+  zoneName: Abstract
+  description: A surreal, dreamlike space with floating islands, shifting shapes,
+    and impossible landscapes.
+  idealClients: Inspires creativity but can increase confusion, making it harder
+    to stabilize. Ideal for clients who desire imaginative experiences.
+  icon: {fileID: 0}
+  baseCost: 0
+  emotionalImpact: 0
+  balanceImpact: 0
