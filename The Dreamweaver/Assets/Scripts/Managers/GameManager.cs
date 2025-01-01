@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     public GameState currentState;
 
     public int clientsPerDay = 3;  // Number of new clients to generate each day
-    public ClientManager clientManager;  // Reference to the ClientManager to access the client list
 
     private int currentDay = 0;  // Track the current day
 
@@ -30,7 +29,7 @@ public class GameManager : MonoBehaviour
         currentDay++;
         phaseText.enabled = true;
         phaseText.text = $"Starting day {currentDay}!";
-        clientManager.GenerateClients(clientsPerDay);
+        GetComponent<ClientManager>().GenerateClients(clientsPerDay);
         currentState = GameState.Crafting;
         Invoke(nameof(StartCrafting), 3f);
     }

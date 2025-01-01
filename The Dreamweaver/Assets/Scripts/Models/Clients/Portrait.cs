@@ -14,7 +14,25 @@ public class Portrait
 
     public Sprite CreatePortrait(string country, string gender, int age)
     {
-        EthnicityData ethnicityData = Resources.Load<EthnicityData>("DataAssets/Clients/Ethnicities/1");
+        var etnicity = 1;
+        if (country == "Brazil" || country == "Argentina" || country == "Mexico")
+        {
+            etnicity = 4;
+        }
+        else if (country == "Japan" || country == "South Korea" || country == "China" || country == "India")
+        {
+            etnicity = 2;
+        }
+        else if (country == "South Africa" || country == "Egypt" || country == "Nigeria")
+        {
+            etnicity = 3;
+        }
+        else if (country == "Turkey")
+        {
+            etnicity = 5;
+        }
+
+        EthnicityData ethnicityData = Resources.Load<EthnicityData>($"DataAssets/Clients/Ethnicities/{etnicity}");
 
         _ethnicityData = ethnicityData;
         //PaintAndTattoos = new List<DetailParts>();
@@ -32,10 +50,12 @@ public class Portrait
 
         //    var skinColor = GetColorInfo(_ethnicityData.skinColorList.Colors, SkinColorInfoId);
         var skinColor = PickRandomValue(ethnicityData.skinColorList.Colors);
+        var pupilsColor = PickRandomValue(ethnicityData.pupilsColorList.Colors);
+        var hairColor = PickRandomValue(ethnicityData.hairColorList.Colors);
         //    var hairColor = GetColorInfo(_ethnicityData.hairColorList.Colors, HairColorInfoId);
 
         var tempImage = new Texture2D(128, 128);
-        tempImage = ImageHelper.AlphaBlend(tempImage, Resources.Load(string.Format("{0}/{1}/Shape/{2}", "Images/Clients/PortraitParts", gender, 1)) as Texture2D, skinColor);
+        tempImage = ImageHelper.AlphaBlend(tempImage, gender == "Male" ? PickRandomValue(ethnicityData.faceShapesMale) : PickRandomValue(ethnicityData.faceShapesFemale), skinColor);
 
         //    foreach (var paintAndTattoo in PaintAndTattoos)
         //    {
@@ -52,7 +72,16 @@ public class Portrait
         //        tempImage = ImageHelper.AlphaBlend(tempImage, wound.Texture);
         //    }
 
-        //    tempImage = ImageHelper.AlphaBlend(tempImage, _pupils, GetColorInfo(_ethnicityData.pupilsColorList.Colors, PupilsColorInfoId));
+        tempImage = ImageHelper.AlphaBlend(tempImage, gender == "Male" ? PickRandomValue(ethnicityData.eyesPartsMale) : PickRandomValue(ethnicityData.eyesPartsFemale), null);
+        tempImage = ImageHelper.AlphaBlend(tempImage, gender == "Male" ? PickRandomValue(ethnicityData.pupilsPartsMale) : PickRandomValue(ethnicityData.pupilsPartsFemale), pupilsColor);
+        tempImage = ImageHelper.AlphaBlend(tempImage, gender == "Male" ? PickRandomValue(ethnicityData.nosePartsMale) : PickRandomValue(ethnicityData.nosePartsFemale), new ColorInfo { color = ChangeColorBrightness(skinColor.color, -0.3f) });
+        tempImage = ImageHelper.AlphaBlend(tempImage, gender == "Male" ? PickRandomValue(ethnicityData.eyeBrowsMale) : PickRandomValue(ethnicityData.eyeBrowsFemale), hairColor);
+        tempImage = ImageHelper.AlphaBlend(tempImage, gender == "Male" ? PickRandomValue(ethnicityData.mouthPartsMale) : PickRandomValue(ethnicityData.mouthPartsFemale), null);
+        tempImage = ImageHelper.AlphaBlend(tempImage, gender == "Male" ? PickRandomValue(ethnicityData.hairMale) : PickRandomValue(ethnicityData.hairFemale), hairColor);
+        if (gender == "Male")
+        {
+            tempImage = ImageHelper.AlphaBlend(tempImage, PickRandomValue(ethnicityData.facialHairMale), hairColor);
+        }
         //    tempImage = ImageHelper.AlphaBlend(tempImage, _eyeBrows, hairColor);
         //    var clothes = wearableItems.FirstOrDefault(w => w.ItemType == WearableItemTypes.Clothes);
         //    if (clothes != null)
@@ -109,5 +138,40 @@ public class Portrait
         System.Random random = new System.Random();
         int index = random.Next(0, list.Count); // Generates a random index
         return list[index];
+    }
+
+    public static int PickRandomIndex<T>(List<T> list)
+    {
+        if (list == null || list.Count == 0)
+        {
+            throw new ArgumentException("List cannot be null or empty.");
+        }
+
+        System.Random random = new System.Random();
+        int index = random.Next(0, list.Count); // Generates a random index
+        return index;
+    }
+
+    private Color ChangeColorBrightness(Color color, float correctionFactor)
+    {
+        float red = (float)color.r;
+        float green = (float)color.g;
+        float blue = (float)color.b;
+
+        if (correctionFactor < 0)
+        {
+            correctionFactor = 1 + correctionFactor;
+            red *= correctionFactor;
+            green *= correctionFactor;
+            blue *= correctionFactor;
+        }
+        else
+        {
+            red = (255 - red) * correctionFactor + red;
+            green = (255 - green) * correctionFactor + green;
+            blue = (255 - blue) * correctionFactor + blue;
+        }
+
+        return new Color(red, green, blue, color.a);
     }
 }

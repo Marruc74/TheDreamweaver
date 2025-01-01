@@ -6,7 +6,7 @@ public class ClientPanelManager : MonoBehaviour
 {
     public GameObject clientPrefab;
     public Transform clientListParent;
-    public GameObject managers;
+    public GameObject buildDreamPanel;
 
     public Client[] clients;
 
@@ -24,7 +24,7 @@ public class ClientPanelManager : MonoBehaviour
 
     public void PopulateClientList()
     {
-        clients = managers.GetComponent<ClientManager>().currentClients;
+        clients = GetComponent<ClientManager>().currentClients;
 
         // Clear the list of clients already displayed in the panel
         foreach (Transform child in clientListParent)
@@ -37,6 +37,8 @@ public class ClientPanelManager : MonoBehaviour
         {
             // Instantiate a new client UI prefab
             GameObject clientObj = Instantiate(clientPrefab, clientListParent);
+
+            clientObj.GetComponent<DisplayClientBasic>().client = client;
 
             TextMeshProUGUI clientNameText = clientObj.GetComponentInChildren<TextMeshProUGUI>();
 
@@ -53,5 +55,17 @@ public class ClientPanelManager : MonoBehaviour
             //Button clientButton = clientObj.GetComponentInChildren<Button>();
             //clientButton.onClick.AddListener(() => OnClientButtonClicked(client));
         }
+    }
+
+    public void ShowBuildDreamPanel(Client client)
+    {
+        buildDreamPanel.SetActive(true);
+        GetComponent<CraftingMenuManager>().clientsPanel.SetActive(false);
+    }
+
+    public void HideBuildDreamPanel()
+    {
+        buildDreamPanel.SetActive(false);
+        GetComponent<CraftingMenuManager>().clientsPanel.SetActive(true);
     }
 }

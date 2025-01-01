@@ -61,4 +61,5 @@ public class ClientManager : MonoBehaviour
             newClient.DescribeClient();
         }
     }
+
 }

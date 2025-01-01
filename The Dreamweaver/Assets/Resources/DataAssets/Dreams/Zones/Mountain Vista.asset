@@ -10,13 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4118b2377db15847853652513f98f04, type: 3}
-  m_Name: Fantasy
+  m_Name: Mountain Vista
   m_EditorClassIdentifier: 
-  zoneName: Fantasy
-  description: A whimsical land with magical creatures, flying islands, and enchanted
-    forests.
-  idealClients: Adds fantasy elements to dreams, offering high creativity and fantasy
-    but with potential chaos. Great for dreamers who seek escapism.
+  zoneName: Mountain Vista
+  description: A breathtaking mountain view that inspires awe and adventure.
+  type: 2
+  tier: 1
+  prerequisites:
+  - {fileID: 11400000, guid: caad7958ece490148b5a9457a4f76138, type: 2}
+  idealClients: Adventurous, Creative, Optimistic
   icon: {fileID: 0}
   baseCost: 0
   emotionalImpact: 0

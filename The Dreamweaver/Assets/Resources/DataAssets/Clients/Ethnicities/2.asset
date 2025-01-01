@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e37c57d920f0524f828a7c9a3b106b9, type: 3}
-  m_Name: 1
+  m_Name: 2
   m_EditorClassIdentifier: 
   id: 1
   etnicityName: Caucasian
-  skinColorList: {fileID: 11400000, guid: 3a41c4d3362d76e43bc22c2bb7dd069e, type: 2}
-  hairColorList: {fileID: 11400000, guid: 36c7d7833705034468528a8386c78a1d, type: 2}
-  pupilsColorList: {fileID: 11400000, guid: 1ec241ea1b9941648b538d46bbc782b5, type: 2}
+  skinColorList: {fileID: 11400000, guid: b198350f1180e6c4db39548fcc57aea3, type: 2}
+  hairColorList: {fileID: 11400000, guid: 6a0e61de79cd4c341b0b0cfafbb48524, type: 2}
+  pupilsColorList: {fileID: 11400000, guid: 6964cb111104a684e839e96fce9b421b, type: 2}
   faceShapesMale:
   - {fileID: 2800000, guid: 7390f435f230e9040bdf62a239942f95, type: 3}
   faceShapesFemale:

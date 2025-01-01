@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 
+[Serializable]
 public class Client
 {
     public string firstName;             // Client's first name
@@ -23,7 +25,7 @@ public class Client
         this.country = country;
         this.gender = gender;
         this.age = age;
-        satisfactionLevel = Random.Range(50, 101); // Random satisfaction between 50 and 100
+        satisfactionLevel = UnityEngine.Random.Range(50, 101); // Random satisfaction between 50 and 100
         dreamBudget = budget;
         clientPortrait = new Portrait().CreatePortrait(country, gender, age);
     }
