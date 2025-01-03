@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
 
     private int currentDay = 0;  // Track the current day
 
+    public ZoneModule[] availableZones;
+
 
     void Start()
     {

@@ -5,7 +5,6 @@ using static Names;
 public class ClientManager : MonoBehaviour
 {
     public Client[] currentClients;  // Array to hold the clients for today
-    private string[] possibleLastNames = { "Smith", "Johnson", "Williams", "Brown" };
     private string[] possibleCountries = {
         "USA", "Canada", "Germany", "Sweden", "Italy",
         "France", "Spain", "UK", "Australia", "Brazil",

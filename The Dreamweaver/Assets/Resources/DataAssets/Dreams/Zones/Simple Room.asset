@@ -18,7 +18,7 @@ MonoBehaviour:
   tier: 0
   prerequisites: []
   idealClients: Practical, Reflective, Minimalist
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 1834fe13133ff8e4cb4b578cd3ffbdc5, type: 3}
   baseCost: 0
   emotionalImpact: 0
   balanceImpact: 0

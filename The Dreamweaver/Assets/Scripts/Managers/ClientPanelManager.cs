@@ -61,6 +61,7 @@ public class ClientPanelManager : MonoBehaviour
     {
         buildDreamPanel.SetActive(true);
         GetComponent<CraftingMenuManager>().clientsPanel.SetActive(false);
+        GetComponent<DreamBuilderManager>().InstantiateModules();
     }
 
     public void HideBuildDreamPanel()
