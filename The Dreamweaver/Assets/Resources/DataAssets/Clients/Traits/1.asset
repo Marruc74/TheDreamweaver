@@ -16,5 +16,5 @@ MonoBehaviour:
   positiveDescription: Enjoys exploring new experiences, often seeking excitement
     and change.
   negativeName: Cautious
-  negativeDescription: "\tPrefers familiar routines, avoids risks, and values stability
-    over new experiences."
+  negativeDescription: Prefers familiar routines, avoids risks, and values stability
+    over new experiences.

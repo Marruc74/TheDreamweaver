@@ -7,8 +7,8 @@ public class Client
 {
     public string firstName;             // Client's first name
     public string lastName;              // Client's last name
-    public Requirements requirements;     // Requirements (subobject with various attributes)
-    public Trait[] traits;               // Array of traits (DataAssets to be created later)
+    public Requirements requirements;    // Requirements (subobject with various attributes)
+    public List<CharacterTrait> traits;  // Array of traits 
     public string country;               // Country of origin
     public string gender;                // Gender of the client (e.g., "Male", "Female", "Other")
     public int age;                      // Age of the client

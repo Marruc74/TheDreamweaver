@@ -4,6 +4,7 @@ using static Names;
 
 public class ClientManager : MonoBehaviour
 {
+    public Trait[] possibleTraits;  // This will be populated with DataAssets later
     public Client[] currentClients;  // Array to hold the clients for today
     private string[] possibleCountries = {
         "USA", "Canada", "Germany", "Sweden", "Italy",
@@ -14,8 +15,6 @@ public class ClientManager : MonoBehaviour
     private string[] possibleGenders = { "Male", "Female" };  // Gender options
     private int minAge = 18;
     private int maxAge = 65;
-
-    private Trait[] possibleTraits;  // This will be populated with DataAssets later
 
     // Generate a list of clients for the day
     public void GenerateClients(int numberOfClients)
@@ -50,8 +49,24 @@ public class ClientManager : MonoBehaviour
 
             Client newClient = new Client(firstName, lastName, randomRequirements, country, gender, age, budget);
 
-            // Assign random traits (this will be based on DataAssets later)
-            //newClient.traits = new Trait[] { possibleTraits[Random.Range(0, possibleTraits.Length)] };
+            // Assign 3 unique random traits with either positive or negative effect
+            newClient.traits = new List<CharacterTrait>();
+            HashSet<Trait> assignedTraits = new HashSet<Trait>();
+            while (newClient.traits.Count < 3)
+            {
+                Trait randomTrait = possibleTraits[Random.Range(0, possibleTraits.Length)];
+                if (!assignedTraits.Contains(randomTrait))
+                {
+                    assignedTraits.Add(randomTrait);
+                    bool isPositive = Random.Range(0, 2) == 0; // Randomly choose between positive and negative effect
+                    CharacterTrait characterTrait = new CharacterTrait
+                    {
+                        trait = randomTrait,
+                        isPositive = isPositive
+                    };
+                    newClient.traits.Add(characterTrait);
+                }
+            }
 
             // Store the new client in the current clients array
             currentClients[i] = newClient;

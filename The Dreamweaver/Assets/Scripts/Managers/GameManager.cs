@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
 
     public ZoneModule[] availableZones;
 
+    public int dreamShards = 100;
+
 
     void Start()
     {
