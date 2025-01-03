@@ -53,11 +53,12 @@ public class GameManager : MonoBehaviour
         phaseText.text = "Dreams encountered...";
         Debug.Log("Dreams encountered...");
         currentState = GameState.Dream;
-        // Logic for nightmare challenges
-        Invoke(nameof(EndDay), 2f); // Simulate nightmare for 5 seconds
+        GetComponent<DreamManager>().Dream();
+        //// Logic for nightmare challenges
+        //Invoke(nameof(EndDay), 2f); // Simulate nightmare for 5 seconds
     }
 
-    void EndDay()
+    public void EndDay()
     {
         phaseText.text = "Ending the day...";
         Debug.Log("Ending the day...");

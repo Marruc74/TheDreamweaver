@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
@@ -14,7 +15,8 @@ public class Client
     public int satisfactionLevel;        // Satisfaction level (0-100)
     public int dreamBudget;              // Budget for their dream
     public Sprite clientPortrait;        // Portrait (optional)
-    public AudioClip clientAudio;        // Audio clip (optional)
+
+    public List<ZoneModule> zoneModules;
 
     // Constructor for creating a new client
     public Client(string fName, string lName, Requirements reqs, string country, string gender, int age, int budget)
@@ -28,6 +30,7 @@ public class Client
         satisfactionLevel = UnityEngine.Random.Range(50, 101); // Random satisfaction between 50 and 100
         dreamBudget = budget;
         clientPortrait = new Portrait().CreatePortrait(country, gender, age);
+        zoneModules = new List<ZoneModule>();
     }
 
     // Method to display client details
